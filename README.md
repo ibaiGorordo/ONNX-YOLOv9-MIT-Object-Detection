@@ -24,7 +24,7 @@ Otherwise:
 `pip install onnxruntime`
 
 # ONNX model
-- If the model file is not found in the models directory, it will be downloaded automatically from the [latest release](https://github.com/ibaiGorordo/ONNX-YOLOv8-Object-Detection/releases/latest).
+- If the model file is not found in the models directory, it will be downloaded automatically from the [release page](https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/tag/0.1.0).
 - Use the Google Colab notebook to convert the model: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KPFC-BLL7i7kQJFYq-1JACFiTzPYyOsC?usp=sharing)
 
 # Original YOLOv9 MIT model
