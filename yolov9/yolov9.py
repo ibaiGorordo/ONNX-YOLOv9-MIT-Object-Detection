@@ -8,7 +8,7 @@ from .utils import draw_detections, check_model
 
 class YOLOv9:
 
-    def __init__(self, path: str, conf_thres: float = 0.25, input_shape: tuple[int, int] = (640, 480)):
+    def __init__(self, path: str, conf_thres: float = 0.2, input_shape: tuple[int, int] = (640, 480)):
 
         self.conf_threshold = conf_thres
         self.input_shape = input_shape
