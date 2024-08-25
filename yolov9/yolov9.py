@@ -8,10 +8,9 @@ from .utils import draw_detections, check_model
 
 class YOLOv9:
 
-    def __init__(self, path: str, conf_thres: float = 0.2, input_shape: tuple[int, int] = (640, 480)):
+    def __init__(self, path: str, conf_thres: float = 0.2):
 
         self.conf_threshold = conf_thres
-        self.input_shape = input_shape
 
         check_model(path)
 
@@ -82,8 +81,8 @@ class YOLOv9:
         self.input_names = [model_inputs[i].name for i in range(len(model_inputs))]
 
         input_shape = model_inputs[0].shape
-        self.input_height = input_shape[2] if type(input_shape[2]) == int else self.input_shape[1]
-        self.input_width = input_shape[3] if type(input_shape[3]) == int else self.input_shape[0]
+        self.input_height = input_shape[2] if type(input_shape[2]) == int else 640
+        self.input_width = input_shape[3] if type(input_shape[3]) == int else 640
 
     def get_output_details(self):
         model_outputs = self.session.get_outputs()

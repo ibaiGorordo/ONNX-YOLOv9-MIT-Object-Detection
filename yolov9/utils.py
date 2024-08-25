@@ -18,7 +18,7 @@ class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'tra
 rng = np.random.default_rng(3)
 colors = rng.uniform(0, 255, size=(len(class_names), 3))
 
-available_models = ["v9-s_mit.onnx", "v9-m_mit.onnx", "v9-c_mit.onnx"]
+available_models = ["v9-s_mit.onnx", "v9-m_mit.onnx", "v9-c_mit.onnx", "gelan-c.onnx", "gelan-e.onnx", "yolov9-c.onnx", "yolov9-e.onnx"]
 
 def download_model(url: str, path: str):
     print(f"Downloading model from {url} to {path}")
@@ -38,7 +38,11 @@ def check_model(model_path: str):
     if model_name not in available_models:
         raise ValueError(f"Invalid model name: {model_name}")
 
-    url = f"https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/download/0.1.0/{model_name}"
+    if 'mit' in model_name:
+        url = f"https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/download/0.1.0/{model_name}"
+    else:
+        model_name = model_name.split('.')[0]
+        url = f"https://huggingface.co/Xenova/{model_name}/resolve/main/onnx/model.onnx"
     download_model(url, model_path)
 
 
