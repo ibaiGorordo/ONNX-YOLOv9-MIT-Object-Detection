@@ -8,10 +8,12 @@ from .utils import draw_detections, check_model
 
 class YOLOv9:
 
-    def __init__(self, path: str, conf_thres: float = 0.2):
-        check_model(path)
+    def __init__(self, path: str, conf_thres: float = 0.25, input_shape: tuple[int, int] = (640, 480)):
 
-        self.conf_threshold = np.array([conf_thres], dtype=np.float64)
+        self.conf_threshold = conf_thres
+        self.input_shape = input_shape
+
+        check_model(path)
 
         # Initialize model
         self.session = onnxruntime.InferenceSession(path, providers=onnxruntime.get_available_providers())
@@ -48,16 +50,21 @@ class YOLOv9:
 
     def inference(self, input_tensor):
         start = time.perf_counter()
-        outputs = self.session.run(self.output_names, {self.input_names[0]: input_tensor,
-                                                       self.input_names[1]: self.conf_threshold})
+        outputs = self.session.run(self.output_names, {self.input_names[0]: input_tensor})
 
         print(f"Inference time: {(time.perf_counter() - start) * 1000:.2f} ms")
         return outputs
 
     def process_output(self, output):
-        class_ids = output[:, 0].astype(int)
-        boxes = output[:, 1:-1]
-        confidences = output[:, -1]
+
+        boxes = output[:, :-2]
+        confidences = output[:, -2]
+        class_ids = output[:, -1].astype(int)
+
+        mask = confidences > self.conf_threshold
+        boxes = boxes[mask, :]
+        confidences = confidences[mask]
+        class_ids = class_ids[mask]
 
         # Rescale boxes to original image dimensions
         boxes = self.rescale_boxes(boxes)
@@ -75,8 +82,8 @@ class YOLOv9:
         self.input_names = [model_inputs[i].name for i in range(len(model_inputs))]
 
         self.input_shape = model_inputs[0].shape
-        self.input_height = self.input_shape[2]
-        self.input_width = self.input_shape[3]
+        self.input_height = self.input_shape[2] if type(self.input_shape[2]) == int else self.input_shape[1]
+        self.input_width = self.input_shape[3] if type(self.input_shape[3]) == int else self.input_shape[0]
 
     def get_output_details(self):
         model_outputs = self.session.get_outputs()
@@ -86,7 +93,7 @@ class YOLOv9:
 if __name__ == '__main__':
     from imread_from_url import imread_from_url
 
-    model_path = "../models/v9-s.onnx"
+    model_path = "../models/v9-c.onnx"
 
     # Initialize YOLOv9 object detector
     yolov9_detector = YOLOv9(model_path)
