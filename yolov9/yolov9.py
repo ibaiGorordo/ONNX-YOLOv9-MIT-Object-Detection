@@ -81,9 +81,10 @@ class YOLOv9:
         model_inputs = self.session.get_inputs()
         self.input_names = [model_inputs[i].name for i in range(len(model_inputs))]
 
-        self.input_shape = model_inputs[0].shape
-        self.input_height = self.input_shape[2] if type(self.input_shape[2]) == int else self.input_shape[1]
-        self.input_width = self.input_shape[3] if type(self.input_shape[3]) == int else self.input_shape[0]
+        input_shape = model_inputs[0].shape
+        self.input_height = self.input_shape[2] if type(input_shape[2]) == int else self.input_shape[1]
+        self.input_width = self.input_shape[3] if type(input_shape[3]) == int else self.input_shape[0]
+        print(self.input_width, self.input_height)
 
     def get_output_details(self):
         model_outputs = self.session.get_outputs()
