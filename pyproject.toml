@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yolov9-onnx"
+version = "0.1.0"
+description = "Run YOLOv9 MIT model with ONNX Runtime"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Ibai Gorordo"}
+]
+dependencies = [
+    "onnxruntime",
+    "opencv-python",
+]
+
+[tool.setuptools.packages.find]
+include = ["yolov9"]
+
+[project.urls]
+Homepage = "https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection"
