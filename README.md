@@ -32,7 +32,7 @@ Otherwise:
 ## ONNX model
 - If the model file is not found in the models directory, it will be downloaded automatically from the [release page](https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/tag/0.1.0).
 - Or, for exporting the models with a different input size, use the Google Colab notebook to convert the model: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KPFC-BLL7i7kQJFYq-1JACFiTzPYyOsC?usp=sharing)
-- **Available models**: v9-s.onnx, v9-m.onnx, v9-c.onnx
+- **Available models**: v9-s_mit.onnx, v9-m_mit.onnx, v9-c_mit.onnx
 
 ## Original YOLOv9 MIT model
 The original YOLOv9 MIT model can be found in this repository: [YOLOv9 MIT Repository](https://github.com/WongKinYiu/YOLO)
