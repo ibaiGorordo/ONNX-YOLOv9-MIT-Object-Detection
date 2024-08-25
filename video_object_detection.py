@@ -14,7 +14,7 @@ cap_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 cap.set(cv2.CAP_PROP_POS_FRAMES, start_time * fps)
 
 # Initialize object detector
-model_path = "models/v9-c.onnx"
+model_path = "models/v9-c_mit.onnx"
 detector = YOLOv9(model_path, conf_thres=0.3)
 
 cv2.namedWindow("Detected Objects", cv2.WINDOW_NORMAL)

@@ -6,7 +6,7 @@ from yolov9 import YOLOv9, draw_detections
 cap = cv2.VideoCapture(0)
 
 # Initialize object detector
-model_path = "models/v9-s.onnx"
+model_path = "models/v9-s_mit.onnx"
 detector = YOLOv9(model_path, conf_thres=0.5)
 
 cv2.namedWindow("Detected Objects", cv2.WINDOW_NORMAL)
