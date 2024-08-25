@@ -6,12 +6,11 @@
 > [!CAUTION]
 > I skipped adding the pad to the input image when resizing, which might affect the accuracy of the model if the input image has a different aspect ratio compared to the input size of the model. Always try to get an input size with a ratio close to the input images you will use.
 
-# Requirements
+## Requirements
 
  * Check the **requirements.txt** file.
  * For ONNX, if you have a NVIDIA GPU, then install the **onnxruntime-gpu**, otherwise use the **onnxruntime** library.
 
-# Installation
 ## Installation [![PyPI](https://img.shields.io/pypi/v/yolov9-onnx?color=2BAF2B)](https://pypi.org/project/yolov9-onnx/)
 
 ```bash
@@ -30,16 +29,16 @@ For Nvidia GPU computers:
 Otherwise:
 `pip install onnxruntime`
 
-# ONNX model
+## ONNX model
 - If the model file is not found in the models directory, it will be downloaded automatically from the [release page](https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/tag/0.1.0).
 - Or, for exporting the models with a different input size, use the Google Colab notebook to convert the model: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KPFC-BLL7i7kQJFYq-1JACFiTzPYyOsC?usp=sharing)
 - **Available models**: v9-s.onnx, v9-m.onnx, v9-c.onnx
 
-# Original YOLOv9 MIT model
+## Original YOLOv9 MIT model
 The original YOLOv9 MIT model can be found in this repository: [YOLOv9 MIT Repository](https://github.com/WongKinYiu/YOLO)
 - The License of the models is MIT license: [License](https://github.com/WongKinYiu/YOLO/blob/main/LICENSE)
 
-# Examples
+## Examples
 
  * **Image inference**:
  ```
@@ -58,6 +57,6 @@ The original YOLOv9 MIT model can be found in this repository: [YOLOv9 MIT Repos
 
 https://github.com/user-attachments/assets/71b3ef97-92ef-4ddb-a62c-5e52922a396d
 
-# References:
+## References:
 * YOLOv9 MIT model: https://github.com/WongKinYiu/YOLO
 * YOLOv9 model: https://github.com/WongKinYiu/yolov9
