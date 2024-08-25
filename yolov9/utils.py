@@ -38,7 +38,7 @@ def check_model(model_path: str):
     if model_name not in available_models:
         raise ValueError(f"Invalid model name: {model_name}")
 
-    url = f"https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-Object-Detection/releases/download/0.1.0/{model_name}"
+    url = f"https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/download/0.1.0/{model_name}"
     download_model(url, model_path)
 
 

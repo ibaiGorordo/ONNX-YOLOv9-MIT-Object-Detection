@@ -3,12 +3,14 @@ import cv2
 import numpy as np
 import onnxruntime
 
-from yolov9.utils import draw_detections
+from .utils import draw_detections, check_model
 
 
 class YOLOv9:
 
     def __init__(self, path: str, conf_thres: float = 0.2):
+        check_model(path)
+
         self.conf_threshold = np.array([conf_thres], dtype=np.float64)
 
         # Initialize model
