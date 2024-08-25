@@ -18,7 +18,7 @@ class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'tra
 rng = np.random.default_rng(3)
 colors = rng.uniform(0, 255, size=(len(class_names), 3))
 
-available_models = ["v9-s.onnx", "v9-m.onnx", "v9-c.onnx"]
+available_models = ["v9-s_mit.onnx", "v9-m_mit.onnx", "v9-c_mit.onnx"]
 
 def download_model(url: str, path: str):
     print(f"Downloading model from {url} to {path}")

@@ -82,9 +82,8 @@ class YOLOv9:
         self.input_names = [model_inputs[i].name for i in range(len(model_inputs))]
 
         input_shape = model_inputs[0].shape
-        self.input_height = self.input_shape[2] if type(input_shape[2]) == int else self.input_shape[1]
-        self.input_width = self.input_shape[3] if type(input_shape[3]) == int else self.input_shape[0]
-        print(self.input_width, self.input_height)
+        self.input_height = input_shape[2] if type(input_shape[2]) == int else self.input_shape[1]
+        self.input_width = input_shape[3] if type(input_shape[3]) == int else self.input_shape[0]
 
     def get_output_details(self):
         model_outputs = self.session.get_outputs()
@@ -94,7 +93,7 @@ class YOLOv9:
 if __name__ == '__main__':
     from imread_from_url import imread_from_url
 
-    model_path = "../models/v9-c.onnx"
+    model_path = "../models/v9-c_mit.onnx"
 
     # Initialize YOLOv9 object detector
     yolov9_detector = YOLOv9(model_path)
