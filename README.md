@@ -11,7 +11,13 @@
  * For ONNX, if you have a NVIDIA GPU, then install the **onnxruntime-gpu**, otherwise use the **onnxruntime** library.
 
 # Installation
+## Installation [![PyPI](https://img.shields.io/pypi/v/yolov9-onnx?color=2BAF2B)](https://pypi.org/project/yolov9-onnx/)
+
+```bash
+pip install yolov9-onnx
 ```
+Or, clone this repository:
+```bash
 git clone https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-Object-Detection.git
 cd ONNX-YOLOv9-MIT-Object-Detection
 pip install -r requirements.txt
