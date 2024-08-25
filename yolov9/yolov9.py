@@ -55,7 +55,7 @@ class YOLOv9:
         return outputs
 
     def process_output(self, output):
-
+        output = output.squeeze()
         boxes = output[:, :-2]
         confidences = output[:, -2]
         class_ids = output[:, -1].astype(int)
