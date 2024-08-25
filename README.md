@@ -1,9 +1,10 @@
 # ONNX YOLOv9 MIT Object Detection
  Python scripts performing object detection using the YOLOv9 MIT model in ONNX.
+ 
 ![!ONNX YOLOv9 Object Detection](https://github.com/user-attachments/assets/a4237b6e-53f1-4c51-be3a-bd8369c1991c)
 
-# Important
-- I skipped adding the pad to the input image when resizing, which might affect the accuracy of the model if the input image has a different aspect ratio compared to the input size of the model. Always try to get an input size with a ratio close to the input images you will use.
+> [!CAUTION]
+> I skipped adding the pad to the input image when resizing, which might affect the accuracy of the model if the input image has a different aspect ratio compared to the input size of the model. Always try to get an input size with a ratio close to the input images you will use.
 
 # Requirements
 
