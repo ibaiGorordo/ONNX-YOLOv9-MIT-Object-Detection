@@ -18,30 +18,33 @@ class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'tra
 rng = np.random.default_rng(3)
 colors = rng.uniform(0, 255, size=(len(class_names), 3))
 
-available_models = ["v9-s_mit.onnx", "v9-m_mit.onnx", "v9-c_mit.onnx", "gelan-c.onnx", "gelan-e.onnx", "yolov9-c.onnx", "yolov9-e.onnx"]
+available_models = ["v9-s_mit", "v9-m_mit", "v9-c_mit", "gelan-c", "gelan-e", "yolov9-c", "yolov9-e"]
+
 
 def download_model(url: str, path: str):
     print(f"Downloading model from {url} to {path}")
     r = requests.get(url, stream=True)
     with open(path, 'wb') as f:
         total_length = int(r.headers.get('content-length'))
-        for chunk in tqdm.tqdm(r.iter_content(chunk_size=1024*1024), total=total_length //(1024*1024),bar_format='{l_bar}{bar:10}'):
+        for chunk in tqdm.tqdm(r.iter_content(chunk_size=1024 * 1024), total=total_length // (1024 * 1024),
+                               bar_format='{l_bar}{bar:10}'):
             if chunk:
                 f.write(chunk)
                 f.flush()
+
 
 def check_model(model_path: str):
     if os.path.exists(model_path):
         return
 
-    model_name = os.path.basename(model_path)
+    model_name = os.path.basename(model_path).split('.')[0]
     if model_name not in available_models:
         raise ValueError(f"Invalid model name: {model_name}")
 
     if 'mit' in model_name:
-        url = f"https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/download/0.1.0/{model_name}"
+        url = f"https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-ObjectDetection/releases/download/0.1.0/{model_name}.onnx"
     else:
-        model_name = model_name.split('.')[0]
+        model_name = model_name
         url = f"https://huggingface.co/Xenova/{model_name}/resolve/main/onnx/model.onnx"
     download_model(url, model_path)
 
