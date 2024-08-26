@@ -40,6 +40,24 @@ Otherwise:
 The original YOLOv9 MIT model can be found in this repository: [YOLOv9 MIT Repository](https://github.com/WongKinYiu/YOLO)
 - The License of the models is MIT license: [License](https://github.com/WongKinYiu/YOLO/blob/main/LICENSE)
 
+## Usage
+```python
+import cv2
+from yolov9 import YOLOv9, draw_detections
+
+detector = YOLOv9("v9-c_mit.onnx")
+
+img = cv2.imread("image.jpg")
+
+class_ids, boxes, confidences = detector(img)
+
+combined_img = draw_detections(img, boxes, confidences, class_ids)
+cv2.imshow("Detections", combined_img)
+cv2.waitKey(0)
+```
+
+# Load the model
+
 ## Examples
 
  * **Image inference**:
