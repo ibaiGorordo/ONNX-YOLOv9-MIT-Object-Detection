@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yolov9-onnx"
-version = "0.6.0"
+version = "0.7.0"
 description = "Run YOLOv9 MIT model with ONNX Runtime"
 readme = "README.md"
 license = {text = "MIT"}
