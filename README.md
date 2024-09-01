@@ -56,8 +56,6 @@ cv2.imshow("Detections", combined_img)
 cv2.waitKey(0)
 ```
 
-# Load the model
-
 ## Examples
 
  * **Image inference**:
