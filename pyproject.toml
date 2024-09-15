@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yolov9-onnx"
-version = "0.7.0"
+version = "0.8.0"
 description = "Run YOLOv9 MIT model with ONNX Runtime"
 readme = "README.md"
 license = {text = "MIT"}
@@ -12,8 +12,10 @@ authors = [
     {name = "Ibai Gorordo"}
 ]
 dependencies = [
-    "onnxruntime",
     "opencv-python",
+    "onnxruntime==1.18.0; sys_platform == 'darwin' and platform_machine != 'arm64'",
+    "onnxruntime-silicon==1.16.3; sys_platform == 'darwin' and platform_machine == 'arm64'",
+    "onnxruntime-gpu==1.18.0; sys_platform != 'darwin'"
 ]
 
 [tool.setuptools.packages.find]
