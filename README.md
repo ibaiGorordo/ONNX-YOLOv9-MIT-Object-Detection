@@ -32,6 +32,9 @@ Otherwise:
 ## ONNX model
 - If the model file is not found in the models directory, it will be downloaded automatically from the [release page](https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-Object-Detection/releases/tag/0.1.0).
 - Or, for exporting the models with a different input size, use the Google Colab notebook to convert the model: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KPFC-BLL7i7kQJFYq-1JACFiTzPYyOsC?usp=sharing)
+
+- Added v9-s_mit.onnx model in this branch for quick testing.
+
 - **Available models**: 
   - **MIT:** v9-s_mit.onnx, v9-m_mit.onnx, v9-c_mit.onnx
   - **Official:** gelan-c.onnx, gelan-e.onnx, yolov9-c.onnx, yolov9-e.onnx
