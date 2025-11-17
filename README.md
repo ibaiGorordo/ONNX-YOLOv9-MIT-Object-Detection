@@ -34,6 +34,7 @@ Otherwise:
 - Or, for exporting the models with a different input size, use the Google Colab notebook to convert the model: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KPFC-BLL7i7kQJFYq-1JACFiTzPYyOsC?usp=sharing)
 
 - Added v9-s_mit.onnx model in this branch for quick testing.
+- or may be in the "release page" link still working.
 
 - **Available models**: 
   - **MIT:** v9-s_mit.onnx, v9-m_mit.onnx, v9-c_mit.onnx
